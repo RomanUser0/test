@@ -13,7 +13,7 @@ function App() {
   } = useForm()
 
   const onSubmit = async (data) => {
-   await axios.post('api/login', {...data}).then((res, req) => {
+   await axios.post('api/auth/login', {...data}).then((res, req) => {
       console.log(res)
     })
   }
