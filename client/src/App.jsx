@@ -1,5 +1,6 @@
 import './App.css'
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
   } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)
+    axios.post('api/create', {...data}).then(result => {
+      console.log(result)
+    })
   }
 
 
