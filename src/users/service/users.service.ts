@@ -23,7 +23,7 @@ export class UsersService {
         const user = await this.userRepository.save({
             name: userDetails.name,
             email: userDetails.email,
-            password: await bcrypt.hash(userDetails.password, 10)
+            password: userDetails.password //await bcrypt.hash(userDetails.password, 10)
         })
 
         const token = this.jwtService.sign({email: userDetails.email})
