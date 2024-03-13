@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn } from "typeorm";
 
 
 
@@ -16,6 +16,6 @@ export class User {
     @Column({unique: true})
     email: string
 
-    @Column() 
+    @UpdateDateColumn() 
     createAt: Date;
 }
