@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/users/users';
 import { CreateUserParams } from 'src/utils/types';
 import { Repository } from 'typeorm';
-import bcrypt from 'bcryptjs'
+import { hashSync } from 'bcryptjs'
 
 @Injectable()
 export class UsersService {
@@ -23,7 +23,7 @@ export class UsersService {
         const user = await this.userRepository.save({
             name: userDetails.name,
             email: userDetails.email,
-            password: bcrypt.hashSync(userDetails.password, 6)
+            password: hashSync(userDetails.password, 6)
         })
 
         const token = this.jwtService.sign({email: userDetails.email})
