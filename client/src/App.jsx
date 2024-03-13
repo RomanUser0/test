@@ -23,9 +23,9 @@ function App() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className='button_form'>
-        <input type='text' placeholder='Name' {...register('Name')}/>
-        <input type='password' placeholder='Password' {...register('Password')}/>
-        <input type='email' placeholder='Email'{...register('Email')}/>
+        <input type='text' placeholder='Name' {...register('name')}/>
+        <input type='password' placeholder='Password' {...register('password')}/>
+        <input type='email' placeholder='Email'{...register('email')}/>
         <button>Отправить</button>
       </form>
       <div>
