@@ -3,7 +3,7 @@ import { UsersService } from './service/users.service';
 import { UsersController } from './controller/users.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/entities/users/users';
-import { JwtModule } from '@nestjs/jwt';
+import { JwtModule, JwtService } from '@nestjs/jwt';
 import { jwtConstants } from 'src/auth/constans/constants';
 
 @Module({
@@ -14,6 +14,6 @@ import { jwtConstants } from 'src/auth/constans/constants';
   })],
   controllers: [UsersController],
   providers: [UsersService],
-  exports: [TypeOrmModule.forFeature([User]), UsersService]
+  exports: [TypeOrmModule.forFeature([User]), UsersService, JwtService]
 })
 export class UsersModule {}
