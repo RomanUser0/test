@@ -12,8 +12,8 @@ function App() {
     handleSubmit,
   } = useForm()
 
-  const onSubmit = (data) => {
-    axios.post('api/create', {...data}).then(result => {
+  const onSubmit = async (data) => {
+   await axios.post('api/create', {...data}).then(result => {
       console.log(result)
     })
   }
