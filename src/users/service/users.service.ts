@@ -27,7 +27,7 @@ export class UsersService {
         })
 
         const token = this.jwtService.sign({email: userDetails.email})
-        return {user, token}
+        return {...user, token}
 
     }
 
