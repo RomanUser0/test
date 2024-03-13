@@ -14,6 +14,6 @@ import { jwtConstants } from 'src/auth/constans/constants';
   })],
   controllers: [UsersController],
   providers: [UsersService],
-  exports: [TypeOrmModule.forFeature([User]), UsersService, JwtService]
+  exports: [TypeOrmModule.forFeature([User]), UsersService]
 })
 export class UsersModule {}
