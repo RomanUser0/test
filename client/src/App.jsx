@@ -11,7 +11,7 @@ function App() {
 
 
   useEffect(() => {
-    console.log(user)
+    
   },[user])
 
 
@@ -26,7 +26,7 @@ function App() {
   const onSubmit = async (data) => {
     await axios.post('api/auth/login', { email: data.email, password: data.password }).then((result) => {
       dispatch(getProfile(result.data))
-      
+      console.log(user)
     })
   }
 
