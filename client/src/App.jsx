@@ -18,10 +18,11 @@ function App() {
 
   const onSubmit = async (data) => {
     await axios.post('api/auth/login',{email: data.email, password: data.password}).then((result) => {
-      console.log(result.data)
       dispatch(getProfile(result.data))
+      console.log(user)
     })
   }
+  
 
 
 
