@@ -16,9 +16,8 @@ function App() {
     handleSubmit,
   } = useForm()
 
-  const onSubmit = async (data) => {
-    await axios.post('api/auth/profile', data).then((result) => {
-      const user = 
+  const onSubmit = async () => {
+    await axios.get('api/auth/profile').then((result) => {
       dispatch(getProfile(result.data))
     })
   }
