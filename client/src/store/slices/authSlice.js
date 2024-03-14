@@ -15,7 +15,7 @@ const initialState = {
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
-    redusers: {
+    reducers: {
         getProfile: (state, action) => {
             state.user = action.payload
             state.isAuth = true
