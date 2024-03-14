@@ -13,7 +13,7 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     redusers: {
-        getProfile(state, action) {
+        getProfile: (state, action) => {
             state.user === action
             state.isAuth = true
         }
