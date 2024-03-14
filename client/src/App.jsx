@@ -17,7 +17,7 @@ function App() {
   } = useForm()
 
   const onSubmit = async (data) => {
-    await axios.post('api/auth/login', data).then((res, req) => {
+    await axios.post('api/create', data).then((res, req) => {
       dispatch(getProfile(data.data))
     })
   }
