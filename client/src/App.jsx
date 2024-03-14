@@ -18,7 +18,8 @@ function App() {
 
   const onSubmit = async (data) => {
     await axios.post('api/create', data).then((res, req) => {
-      dispatch(getProfile(res.data))
+      console.log(res)
+      //dispatch(getProfile(res.data))
     })
   }
 
