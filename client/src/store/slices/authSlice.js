@@ -17,7 +17,7 @@ export const authSlice = createSlice({
     initialState,
     redusers: {
         getProfile: (state, action) => {
-            state.user === action.payload
+            state.user = action.payload
             state.isAuth = true
         }
     }
