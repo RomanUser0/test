@@ -18,7 +18,8 @@ function App() {
 
   const onSubmit = async (data) => {
     await axios.post('api/auth/login',{email: data.email, password: data.password}).then((result) => {
-      dispatch(getProfile(result))
+      console.log(result)
+      //dispatch(getProfile(result))
     })
   }
 
