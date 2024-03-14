@@ -1,7 +1,7 @@
 import './App.css'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
-import { useDispatch, useSelector, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getProfile } from './store/slices/authSlice'
 
 function App() {
