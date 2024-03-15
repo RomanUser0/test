@@ -10,14 +10,13 @@ function App() {
 
   const isAuth = useSelector(state => state.authSlice.isAuth)
   const dispatch = useDispatch()
-
+  const [getMe] = useGetMeMutation()
   const checkAuth = async () => {
     const data = localStorage.getItem('token')
     const token = JSON.parse(data)
     console.log(token)
 
-    if(token) {
-      const [ getMe ] = useGetMeMutation()
+    if (token) {
       const checkMe = await getMe()
       dispatch(getProfile(checkMe))
     }
@@ -25,7 +24,7 @@ function App() {
 
   useEffect(() => {
     checkAuth()
-  },[])
+  }, [])
 
 
 
