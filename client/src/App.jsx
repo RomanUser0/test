@@ -22,7 +22,7 @@ function App() {
   } = useForm()
 
   const onSubmit = async (data) => {
-    await axios.get('api/create', data).then((result) => {
+    await axios.post('api/create', data).then((result) => {
       console.log(result.data)
     })
   }
