@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
 import Auth from './pages/auth/auth'
 import Profile from './pages/profile/profile'
-import { useGetMeMutation } from './store/query/usersApi'
+import { useGetMeQuery } from './store/query/usersApi'
 import { getProfile } from './store/slices/authSlice'
 import { useEffect } from 'react'
 
@@ -15,7 +15,7 @@ function App() {
     const token = localStorage.getItem('token')
     console.log(token)
     if(token) {
-      const { data } = useGetMeMutation()
+      const { data } = useGetMeQuery()
       dispatch(getProfile(data))
     }
   }
