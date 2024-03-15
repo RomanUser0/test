@@ -8,24 +8,21 @@ import { useGetUsersQuery } from "../../store/query/usersApi"
 
 function Profile() {
 
-    useEffect(() => {
+
         const { data = [], isLoading } = useGetUsersQuery()
         console.log(data)
-
-    }, [])
-
 
 
     return (
         <div>
             {
-                data.map((item) => {
+                data.map((item) => (
                     <div>
                         <span>{item.id}</span>
                         <span>{item.name}</span>
                         <span>{item.email}</span>
                     </div>
-                })
+                ))
             }
         </div>
     )
