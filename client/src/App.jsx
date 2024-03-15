@@ -1,49 +1,22 @@
+import { useSelector } from 'react-redux'
 import './App.css'
-import { useForm } from 'react-hook-form'
-import axios from 'axios'
-import { useEffect } from 'react'
-import { useCreateUserMutation, useGetUsersQuery } from './store/query/usersApi'
-import { useDispatch } from 'react-redux'
-import { getProfile } from './store/slices/authSlice'
+import Auth from './pages/auth/auth'
+import Profile from './pages/profile/profile'
 
 function App() {
-  const dispatch = useDispatch()
 
-  useEffect(() => {
-
-  }, [])
-
-  const { data = [] } = useGetUsersQuery()
-  const [createUser, {isLoading}] = useCreateUserMutation()
-  console.log(data)
-
-  const {
-    register,
-    formState: {
-      errors,
-    },
-    handleSubmit,  
-  } = useForm()
-
-  const onSubmit = async (user) => {
-   const data = await createUser(user).unwrap()  
-    dispatch(getProfile(data))
-  }
-
+  const isAuth = useSelector(state => state.authSlice.isAuth)
 
 
 
   return (
-    <>   
-      <form onSubmit={handleSubmit(onSubmit)} className='button_form'>   
-        <input type='text' placeholder='Name' {...register('name')} />
-        <input type='password' placeholder='Password' {...register('password')} />
-        <input type='email' placeholder='Email'{...register('email')} />
-        <button>Отправить</button>
-      </form>
-      <div>
+    <>
+      {isAuth ?
+        <Profile />
+        :
+        <Auth />}
 
-      </div>
+
     </>
   )
 }
