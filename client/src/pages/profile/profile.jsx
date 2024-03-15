@@ -13,7 +13,7 @@ function Profile() {
     return(
         <div>
             {
-                users.map(({id, name, email}) => {
+                users.data.map(({id, name, email}) => {
                     <div>
                         <span>{id}</span>
                         <span>{name}</span>
