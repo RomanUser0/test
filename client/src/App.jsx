@@ -14,7 +14,7 @@ function App() {
   const checkAuth = async () => {
     const token = localStorage.getItem('token')
     console.log(token)
-    if(token) {
+    if(!token) {
       const { data } = useGetMeQuery()
       dispatch(getProfile(data))
     }
