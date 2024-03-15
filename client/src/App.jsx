@@ -1,18 +1,17 @@
 import './App.css'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux'
-import { getProfile } from './store/slices/authSlice'
 import { useEffect } from 'react'
+import { useGetUsersQuery } from './store/query/usersApi'
 
 function App() {
 
-  useEffect( async() => {
-    await axios.get('api/users').then((result) => {
-      console.log(result.data)
-    })
-  }, [])
+  useEffect(() => {
 
+  }, [])
+  
+  const { data } = useGetUsersQuery()
+  console.log(data)
 
   const {
     register,
@@ -22,7 +21,11 @@ function App() {
     handleSubmit,
   } = useForm()
 
-  const onSubmit = async () => { }
+  const onSubmit = async (data) => {
+    await axios.get('api/create', data).then((result) => {
+      console.log(result.data)
+    })
+  }
 
 
 
