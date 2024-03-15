@@ -24,9 +24,9 @@ function App() {
     handleSubmit,  
   } = useForm()
 
-  const onSubmit =  (data) => {
-    const { user } = useCreateUserMutation(data)
-    dispatch(getProfile(user))
+  const onSubmit =  (user) => {
+    const { data } = useCreateUserMutation(user)
+    dispatch(getProfile(data))
   }
 
 
