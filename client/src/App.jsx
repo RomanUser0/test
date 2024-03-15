@@ -7,6 +7,12 @@ import { useEffect } from 'react'
 
 function App() {
 
+  useEffect( async() => {
+    await axios.get('api/users').then((result) => {
+      console.log(result.data)
+    })
+  }, [])
+
 
   const {
     register,
@@ -16,11 +22,7 @@ function App() {
     handleSubmit,
   } = useForm()
 
-  const onSubmit = async () => {
-    await axios.get('api/users').then((result) => {
-      console.log(result.data)
-    })
-  }
+  const onSubmit = async () => { }
 
 
 
