@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
 
   }, [])
-  
+
   const { data } = useGetUsersQuery()
   console.log(data)
 
@@ -18,7 +18,7 @@ function App() {
     formState: {
       errors,
     },
-    handleSubmit,
+    handleSubmit,  
   } = useForm()
 
   const onSubmit = async (data) => {
