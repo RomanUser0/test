@@ -26,7 +26,7 @@ function App() {
   } = useForm()
 
   const onSubmit = async (user) => {
-   const data = await createUser(user).unwrap()
+   const data = await createUser(user).unwrap()  
     dispatch(getProfile(data))
   }
 
