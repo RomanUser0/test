@@ -47,6 +47,6 @@ return (
 
     </div>
 )
-
+  
 
 export default Auth
