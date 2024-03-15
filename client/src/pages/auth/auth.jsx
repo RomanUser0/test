@@ -37,7 +37,7 @@ return (
             <input type='password' placeholder='Password' {...register('password')} />
             <input type='email' placeholder='Email'{...register('email')} />
             <button>Отправить</button>
-        </form>
+        </form> 
         {isAuth ?
             <div onClick={() => setIsAuth(!isAuth)}>Вы хотите зарегестрироваться?</div>
             :
@@ -47,6 +47,6 @@ return (
 
     </div>
 )
-}
+
 
 export default Auth
