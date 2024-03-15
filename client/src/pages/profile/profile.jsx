@@ -16,7 +16,7 @@ function Profile() {
     return (
         <div>
             {
-                data.map((item) => (
+                data.map(item => (
                     <div>
                         <span>{item.id}</span>
                         <span>{item.name}</span>
