@@ -1,4 +1,5 @@
 
+import { useEffect } from "react"
 import { useGetUsersQuery } from "../../store/query/usersApi"
 
 
@@ -7,10 +8,12 @@ import { useGetUsersQuery } from "../../store/query/usersApi"
 
 function Profile() {
 
+    useEffect(() => {
+        const { data = [], isLoading } = useGetUsersQuery()
+        console.log(data)
 
+    }, [])
 
- const { data = [], isLoading } = useGetUsersQuery()
- console.log(data)
 
 
     return (
