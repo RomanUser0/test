@@ -23,6 +23,14 @@ export const usersApi = createApi({
                 body
             }),
             invalidatesTags: [{ type: 'Users', id: 'USER' }]
+        }),
+        getProfile: build.mutation({
+            query: (body) => ({
+                url: 'auth/login',
+                method: 'POST',
+                body
+            }),
+            invalidatesTags: [{ type: 'Users', id: 'USER' }]
         })
     })
 })
