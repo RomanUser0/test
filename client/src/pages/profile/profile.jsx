@@ -10,16 +10,17 @@ function Profile() {
 
 
  const { data = [], isLoading } = useGetUsersQuery()
+ console.log(data)
 
 
     return (
         <div>
             {
-                data.map(({ id, name, email }) => {
+                data.map((item) => {
                     <div>
-                        <span>{id}</span>
-                        <span>{name}</span>
-                        <span>{email}</span>
+                        <span>{item.id}</span>
+                        <span>{item.name}</span>
+                        <span>{item.email}</span>
                     </div>
                 })
             }
