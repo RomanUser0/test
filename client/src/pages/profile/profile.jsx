@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useGetUsersQuery } from "../../store/query/usersApi"
 
 
@@ -6,14 +7,18 @@ import { useGetUsersQuery } from "../../store/query/usersApi"
 
 function Profile() {
 
-    const { users, isLoading}  = useGetUsersQuery()
+    useEffect(async () => {
+        const { users, isLoading } = await useGetUsersQuery()
+    }, [])
 
 
 
-    return(
+
+
+    return (
         <div>
             {
-                users.data.map(({id, name, email}) => {
+                users.data.map(({ id, name, email }) => {
                     <div>
                         <span>{id}</span>
                         <span>{name}</span>
