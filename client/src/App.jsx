@@ -6,13 +6,6 @@ import { getProfile } from './store/slices/authSlice'
 import { useEffect } from 'react'
 
 function App() {
-  const user = useSelector(state => state.authSlice.user)
-  const dispatch = useDispatch()
-
-
-  useEffect(() => {
-    
-  },[user])
 
 
   const {
@@ -23,10 +16,9 @@ function App() {
     handleSubmit,
   } = useForm()
 
-  const onSubmit = async (data) => {
-    await axios.post('api/auth/login', { email: data.email, password: data.password }).then((result) => {
-      dispatch(getProfile(result.data))
-      console.log(user)
+  const onSubmit = async () => {
+    await axios.get('api/users').then((result) => {
+      console.log(result.data)
     })
   }
 

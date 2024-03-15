@@ -38,5 +38,9 @@ export class UsersService {
             }
         });
     }
+
+    async findall() {
+        return await this.userRepository.find()
+    }
 }
 
