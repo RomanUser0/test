@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { useCreateUserMutation, useGetUsersQuery } from '../../store/query/usersApi'
+import { useCreateUserMutation, useGetUsersQuery, useGetProfileMutation } from '../../store/query/usersApi'
 import { useDispatch } from 'react-redux'
 import { getProfile } from '../../store/slices/authSlice'
 import { useState } from 'react'
@@ -11,7 +11,7 @@ function Auth() {
     const dispatch = useDispatch()
     const { data = [] } = useGetUsersQuery()
     const [createUser, { isLoading }] = useCreateUserMutation()
-    const [getProfileUser] = useCreateUserMutation()
+    const [getProfileUser] = useGetProfileMutation()
     const [isAuth, setIsAuth] = useState(false)
     console.log(isAuth)
 
@@ -30,23 +30,23 @@ function Auth() {
 
 
 
-return (
-    <div>
-        <form onSubmit={handleSubmit(onSubmit)} className='button_form'>
-            <input type='text' placeholder='Name' {...register('name')} />
-            <input type='password' placeholder='Password' {...register('password')} />
-            <input type='email' placeholder='Email'{...register('email')} />
-            <button>Отправить</button>
-        </form> 
-        {isAuth ?
-            <div onClick={() => setIsAuth(!isAuth)}>Вы хотите зарегестрироваться?</div>
-            :
-            <div onClick={() => setIsAuth(!isAuth)}>У вас есть аккаунт?</div>
-        }
+    return (
+        <div>
+            <form onSubmit={handleSubmit(onSubmit)} className='button_form'>
+                <input type='text' placeholder='Name' {...register('name')} />
+                <input type='password' placeholder='Password' {...register('password')} />
+                <input type='email' placeholder='Email'{...register('email')} />
+                <button>Отправить</button>
+            </form>
+            {isAuth ?
+                <div onClick={() => setIsAuth(!isAuth)}>Вы хотите зарегестрироваться?</div>
+                :
+                <div onClick={() => setIsAuth(!isAuth)}>У вас есть аккаунт?</div>
+            }
 
 
-    </div>
-)
-    }
+        </div>
+    )
+}
 
 export default Auth
