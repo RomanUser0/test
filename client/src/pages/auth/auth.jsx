@@ -19,10 +19,10 @@ function Auth() {
     const { register, formState: { errors }, handleSubmit } = useForm()
 
     const onSubmit = async (user) => {
-        if (isAuth) {
+        if (isAuth === true) {
             const data = await getProfile(user).unwrap()
             dispatch(getProfile(data))
-        } else {
+        } else if (isAuth === false) {
             const data = await createUser(user).unwrap()
             dispatch(getProfile(data))
         }
