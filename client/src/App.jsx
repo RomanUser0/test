@@ -2,9 +2,12 @@ import './App.css'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useEffect } from 'react'
-import { useGetUsersQuery } from './store/query/usersApi'
+import { useCreateUserMutation, useGetUsersQuery } from './store/query/usersApi'
+import { useDispatch } from 'react-redux'
+import { getProfile } from './store/slices/authSlice'
 
 function App() {
+  const dispatch = useDispatch()
 
   useEffect(() => {
 
@@ -21,10 +24,9 @@ function App() {
     handleSubmit,  
   } = useForm()
 
-  const onSubmit = async (data) => {
-    await axios.post('api/create', data).then((result) => {
-      console.log(result.data)
-    })   
+  const onSubmit =  (data) => {
+    const { user } = useCreateUserMutation(data)
+    dispatch(getProfile(user))
   }
 
 
