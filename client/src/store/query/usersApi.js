@@ -32,9 +32,10 @@ export const usersApi = createApi({
             }),
             invalidatesTags: [{ type: 'Users', id: 'USER' }]
         }),
-        getMe: build.query({
+        getMe: build.mutation({
             query: () => ({
                 url: 'auth/profile',
+                method: 'GET',
                 headers: {
                     Authorization: `Bearer ` + JSON.parse(localStorage.getItem('token'))
                 }
@@ -44,4 +45,4 @@ export const usersApi = createApi({
     })
 })
 
-export const { useGetUsersQuery, useCreateUserMutation, useGetProfileMutation, useGetMeQuery } = usersApi
+export const { useGetUsersQuery, useCreateUserMutation, useGetProfileMutation, useGetMeMutation } = usersApi
