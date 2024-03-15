@@ -33,7 +33,7 @@ function App() {
 
 
   return (
-    <>
+    <>   
       <form onSubmit={handleSubmit(onSubmit)} className='button_form'>   
         <input type='text' placeholder='Name' {...register('name')} />
         <input type='password' placeholder='Password' {...register('password')} />
