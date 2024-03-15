@@ -35,4 +35,4 @@ export const usersApi = createApi({
     })
 })
 
-export const { useGetUsersQuery, useCreateUserMutation } = usersApi
+export const { useGetUsersQuery, useCreateUserMutation, useGetProfileMutation } = usersApi

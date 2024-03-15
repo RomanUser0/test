@@ -11,16 +11,18 @@ function Auth() {
     const dispatch = useDispatch()
     const { data = [] } = useGetUsersQuery()
     const [createUser, { isLoading }] = useCreateUserMutation()
+    const [ getProfile ] = useCreateUserMutation()
     const [isAuth, setIsAuth] = useState(false)
+    console.log(isAuth)
 
 
     const { register, formState: { errors }, handleSubmit } = useForm()
 
     const onSubmit = async (user) => {
         if (isAuth) {
-            const data = await createUser(user).unwrap()
+            const data = await getProfile(user).unwrap()
             dispatch(getProfile(data))
-        }else {
+        } else {
             const data = await createUser(user).unwrap()
             dispatch(getProfile(data))
         }
@@ -35,6 +37,13 @@ function Auth() {
                 <input type='email' placeholder='Email'{...register('email')} />
                 <button>Отправить</button>
             </form>
+            {isAuth ?
+                <div onClick={() => setIsAuth(!isAuth)}>Вы хотите зарегестрироваться?</div>
+                :
+                <div onClick={() => setIsAuth(!isAuth)}>У вас есть аккаунт?</div>
+            }
+
+
         </div>
     )
 }
