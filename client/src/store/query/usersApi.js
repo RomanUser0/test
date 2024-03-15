@@ -10,7 +10,7 @@ export const usersApi = createApi({
             query: () => 'users',
         }),
         createUser: build.mutation({
-            query: () => ({
+            query: (body) => ({
                 url: 'create',
                 method: 'POST',
                 body
