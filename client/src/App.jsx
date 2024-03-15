@@ -10,7 +10,7 @@ function App() {
 
   }, [])
 
-  const { data } = useGetUsersQuery()
+  const { data = [] } = useGetUsersQuery()
   console.log(data)
 
   const {
