@@ -12,9 +12,10 @@ function App() {
   const dispatch = useDispatch()
 
   const checkAuth = async () => {
-    const token = localStorage.getItem('token')
-    console.log(!!token)
-    if(!!token) {
+    const data = localStorage.getItem('token')
+    const token = JSON.parse(data)
+
+    if(token) {
       const { data } = useGetMeQuery()
       dispatch(getProfile(data))
     }

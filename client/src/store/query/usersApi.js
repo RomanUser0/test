@@ -33,7 +33,13 @@ export const usersApi = createApi({
             invalidatesTags: [{ type: 'Users', id: 'USER' }]
         }),
         getMe: build.query({
-            query: () => 'auth/profile'
+            query: () => ({
+                url: 'auth/profile',
+                headers: {
+                    Authorization: `Bearer ` + JSON.parse(localStorage.getItem('token'))
+                }
+            }),
+            
         })
     })
 })

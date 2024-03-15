@@ -21,7 +21,7 @@ function Auth() {
     const onSubmit = async (user) => {
         if (isAuth) {
             const profile = await getProfileUser(user).unwrap()
-            localStorage.setItem('token', profile.token)
+            localStorage.setItem('token', JSON.stringify(profile.token))
             dispatch(getProfile(profile))
             return
         }
