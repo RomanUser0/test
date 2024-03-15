@@ -22,12 +22,13 @@ function Auth() {
         if (isAuth) {
             const profile = await getProfileUser(user).unwrap()
             dispatch(getProfile(profile))
+            return
         }
 
         const data = await createUser(user).unwrap()
         dispatch(getProfile(data))
     }
- 
+
 
 
     return (
