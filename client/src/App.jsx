@@ -14,6 +14,7 @@ function App() {
   const checkAuth = async () => {
     const data = localStorage.getItem('token')
     const token = JSON.parse(data)
+    console.log(token)
 
     if(token) {
       const { data } = useGetMeQuery()
