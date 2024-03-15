@@ -11,7 +11,7 @@ function Auth() {
     const dispatch = useDispatch()
     const { data = [] } = useGetUsersQuery()
     const [createUser, { isLoading }] = useCreateUserMutation()
-    const [getProfile] = useCreateUserMutation()
+    const [getProfileUser] = useCreateUserMutation()
     const [isAuth, setIsAuth] = useState(false)
     console.log(isAuth)
 
@@ -20,7 +20,7 @@ function Auth() {
 
     const onSubmit = async (user) => {
         if (isAuth) {
-            const profile = await getProfile(user).unwrap()
+            const profile = await getProfileUser(user).unwrap()
             dispatch(getProfile(profile))
         }
 
@@ -28,7 +28,7 @@ function Auth() {
         dispatch(getProfile(data))
     }
 
-}
+
 
 return (
     <div>
@@ -47,6 +47,6 @@ return (
 
     </div>
 )
-  
+    }
 
 export default Auth
