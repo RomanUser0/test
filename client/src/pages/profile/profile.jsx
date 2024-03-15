@@ -7,18 +7,15 @@ import { useGetUsersQuery } from "../../store/query/usersApi"
 
 function Profile() {
 
-    useEffect(async () => {
-        const { users, isLoading } = await useGetUsersQuery()
-    }, [])
 
 
-
+ const { data, isLoading } = useGetUsersQuery()
 
 
     return (
         <div>
             {
-                users.data.map(({ id, name, email }) => {
+                data.map(({ id, name, email }) => {
                     <div>
                         <span>{id}</span>
                         <span>{name}</span>
