@@ -31,8 +31,14 @@ export const usersApi = createApi({
                 body
             }),
             invalidatesTags: [{ type: 'Users', id: 'USER' }]
+        }),
+        getMe: build.mutation({
+            query: () => ({
+                url: 'auth/profile',
+                method: 'GET'
+            })
         })
     })
 })
 
-export const { useGetUsersQuery, useCreateUserMutation, useGetProfileMutation } = usersApi
+export const { useGetUsersQuery, useCreateUserMutation, useGetProfileMutation, useGetMeMutation } = usersApi
