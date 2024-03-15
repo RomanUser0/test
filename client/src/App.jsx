@@ -14,6 +14,7 @@ function App() {
   }, [])
 
   const { data = [] } = useGetUsersQuery()
+  const [createUser, {isLoading}] = useCreateUserMutation()
   console.log(data)
 
   const {
@@ -24,8 +25,8 @@ function App() {
     handleSubmit,  
   } = useForm()
 
-  const onSubmit =  (user) => {
-    const { data } = useCreateUserMutation(user)
+  const onSubmit = async (user) => {
+   const data = await createUser(user).unwrap()
     dispatch(getProfile(data))
   }
 
