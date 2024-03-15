@@ -27,7 +27,7 @@ function Auth() {
         const data = await createUser(user).unwrap()
         dispatch(getProfile(data))
     }
-
+ 
 
 
     return (
