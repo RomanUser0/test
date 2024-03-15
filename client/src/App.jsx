@@ -24,7 +24,7 @@ function App() {
   const onSubmit = async (data) => {
     await axios.post('api/create', data).then((result) => {
       console.log(result.data)
-    })
+    })   
   }
 
 
