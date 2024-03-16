@@ -32,6 +32,7 @@ function Profile() {
                         <span>{item.id}</span>
                         <span>{item.name}</span>
                         <span>{item.email}</span>
+                        <h1>Учи програмирование !!!!!!!!!!!!!!</h1>
                     </div>
                 ))
             }
