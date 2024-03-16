@@ -15,11 +15,16 @@ function Profile() {
         const isAuth = useSelector(state => state.authSlice.isAuth)
         console.log(isAuth)
 
+        const logOut = () => {
+            dispatch(logout())
+            localStorage.removeItem('token')
+        }
+
 
     return (
         <div>
             <div>
-                <button onClick={() => dispatch(logout())}>Выход</button>
+                <button onClick={logOut()}>Выход</button>
             </div>
             {
                 data.map(item => (
