@@ -19,7 +19,7 @@ function Profile() {
     return (
         <div>
             <div>
-                <button onClick={() => dispatch(logout)}>Выход</button>
+                <button onClick={() => dispatch(logout())}>Выход</button>
             </div>
             {
                 data.map(item => (
