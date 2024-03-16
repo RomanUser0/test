@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      {!isAuth ?
+      {isAuth ?
         <Profile />
         :
         <Auth />}
