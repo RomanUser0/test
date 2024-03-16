@@ -8,6 +8,8 @@ import { useEffect } from 'react'
 
 function App() {
 
+
+ 
   const isAuth = useSelector(state => state.authSlice.isAuth)
   const dispatch = useDispatch()
   const [getMe] = useGetMeMutation()
@@ -30,7 +32,7 @@ function App() {
 
   return (
     <>
-      {isAuth ?
+      {!isAuth ?
         <Profile />
         :
         <Auth />}
