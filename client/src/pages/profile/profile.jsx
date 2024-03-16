@@ -24,7 +24,7 @@ function Profile() {
     return (
         <div>
             <div>
-                <button onClick={logOut()}>Выход</button>
+                <button onClick={logOut}>Выход</button>
             </div>
             {
                 data.map(item => (
